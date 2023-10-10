@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 500px;
+    height: 888.89px;
+    margin: auto;
+}
+
+.header {
+    height: 15%;
+    background-color: #FFCF02;
+}
+
+main {
+    height: 100%;
+    background-color: rgb(241, 187, 187);
+}
+
+.footer{
+    height: 10%;
+    background-color: #282864;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
