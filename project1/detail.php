@@ -4,10 +4,13 @@ define( "FILE_HEADER", ROOT ."/Project1_ysj/header.php" );
 define( "FILE_FOOTER", ROOT ."/project1_yhh/footer.php" );
 require_once( ROOT ."/project1/lib_db_kkh.php" );
 
-$id='';
-$conn=null;
-$id= $_GET["id"];
+$id = '';
+$conn = null;
+$id = $_GET["id"];
+// var_dump($id);
 PDO_set($conn);
+$result = detail_select( $conn, $id );
+// var_dump($result);
 
 
 ?>
@@ -34,18 +37,18 @@ PDO_set($conn);
 					제목명
 				</div>
 				<div class="div_wt">
-					<?php //echo $item["item_name"];?>
+					<?php echo $result["item_name"];?>
 				</div>
 			</div>
 			<div class="div_memo">
-				<?php //echo $item["memo"];?>
+				<?php echo $result["memo"];?>
 			</div>
 			<div>
 				<div class="div_ylw">
 					수량
 				</div>
 				<div class="div_wt">
-					<?php //echo $item["amount"]?>
+					<?php echo $result["amount"]?>
 			</div>
 			</div>
 			<div>
@@ -53,7 +56,7 @@ PDO_set($conn);
 					태그
 				</div>
 				<div class="div_wt">
-					<?php //echo $item["tag_id"]?>
+					<?php echo $result["tag_id"]?>
 				</div>
 			</div>
 			<div>
@@ -61,7 +64,7 @@ PDO_set($conn);
 					기한
 				</div>
 				<div class="div_wt">
-				<?php //echo $item["d_day"]?>
+				<?php echo $result["d_day"]?>
 				</div>
 			</div>
 		</div>
