@@ -164,7 +164,7 @@ function auto_update_finished(&$conn){
 		."  	finished = '1' "
 		."  	,finished_at = date(now()) "
 		." where "
-		."  	date(now()) < d_day "
+		."  	date(now()) > d_day "
 		;
 		$arr_ps=[
 		];

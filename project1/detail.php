@@ -1,18 +1,17 @@
 <?php
-define( "ROOT", $_SERVER["DOCUMENT_ROOT"]."/project1");
+define( "ROOT", $_SERVER["DOCUMENT_ROOT"] ."/project1");
 define( "FILE_HEADER", ROOT ."/header.php" );
 define( "FILE_FOOTER", ROOT ."/footer.php" );
 require_once( ROOT ."/lib_db.php" );
 
-$id = $_GET["id"];
+$id = '';
 $conn = null;
-
+$id = $_GET["id"];
 // var_dump($id);
 PDO_set($conn);
-$result[0] = detail_select( $conn, $id );
-$item = $result[0][0];
-
-
+$result = detail_select( $conn, $id );
+// var_dump($result);
+auto_update_finished($conn);
 
 ?>
 
@@ -21,7 +20,7 @@ $item = $result[0][0];
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=tk, initial-scale=1.0">
-	<link rel="stylesheet" href="/project1/project_890.css">
+	<link rel="stylesheet" href="../project_890.css">
 	<title>상세페이지</title>
 </head>
 <body>
@@ -31,7 +30,6 @@ $item = $result[0][0];
 		<!-- <h1><img class=img_cart src="./cart.png" alt="">장보자</h1> -->
 	
 	<main class="container">
-	
 		<div>
 			<?php 
 				if($item["img"] === null){
@@ -52,14 +50,14 @@ $item = $result[0][0];
 				</div>
 			</div>
 			<div class="div_memo">
-				<?php echo $item["memo"];?>
+				<?php echo $result["memo"];?>
 			</div>
 			<div>
 				<div class="div_ylw">
 					수량
 				</div>
 				<div class="div_wt">
-					<?php echo $item["amount"];?>
+					<?php echo $result["amount"]?>
 			</div>
 			</div>
 			<div>
@@ -75,13 +73,10 @@ $item = $result[0][0];
 					기한
 				</div>
 				<div class="div_wt">
-				<?php echo $item["d_day"];?>
+				<?php echo $result["d_day"]?>
 				</div>
 			</div>
 		</div>
-		
-	
-	
 		
 		<section>
 			<a class="detail" href="/project1/list.php">취소</a>

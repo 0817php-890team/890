@@ -21,6 +21,12 @@ if($http_method === "POST") {
 }
 $result = list_select($conn);
 
+$conn->beginTransaction();
+auto_update_finished($conn);
+$conn->commit();
+
+
+PDO_del($conn);
 // var_dump($result);
 ?>
 
@@ -49,7 +55,7 @@ $result = list_select($conn);
                 ?>
                 <tr>
                     <td><div class="L">🌭<?php //echo $item["tag_img"]; ?></div></td>
-                    <td><a class="item_name" href="/project1/detail.php?id=<?php echo $item["id"]; ?>">
+                    <td><a class="item_name" href="/project1/detail.php/?id=<?php echo $item["id"]; ?>">
                         <?php echo $item["item_name"]; ?></a>
                     </td>
                     <td><div><?php echo $item["amount"] ." 개"; ?></div></td>
