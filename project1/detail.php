@@ -1,8 +1,8 @@
 <?php
-define( "ROOT", $_SERVER["DOCUMENT_ROOT"]);
-define( "FILE_HEADER", ROOT ."/Project1_ysj/header.php" );
-define( "FILE_FOOTER", ROOT ."/project1_yhh/footer.php" );
-require_once( ROOT ."/project1/lib_db_kkh.php" );
+define( "ROOT", $_SERVER["DOCUMENT_ROOT"] ."/project1");
+define( "FILE_HEADER", ROOT ."/header.php" );
+define( "FILE_FOOTER", ROOT ."/footer.php" );
+require_once( ROOT ."/lib_db.php" );
 
 $id = '';
 $conn = null;
