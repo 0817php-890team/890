@@ -294,7 +294,7 @@ td>div, button.R {
 
 .arrow{
     display: inline-block;
-    background-image: url('../img/check.png');					
+    background-image: url('./img/check.png');					
 	width: 45px;
 	height: 45px;
 	background-size: contain;

@@ -7,23 +7,29 @@ require_once( ROOT ."/lib_db.php" );
 $http_method = $_SERVER["REQUEST_METHOD"];
 $conn=null;
 $nowTime = new DateTime(date("Y-m-d"));
-
+$boo_tran=false;
 PDO_set($conn);
+try {
+    $boo_tran = $conn->beginTransaction();
 
-if($http_method === "POST") {
-    // var_dump($_POST);
-    $id = $_POST["check"];
+    if($http_method === "POST") {
+        // var_dump($_POST);
+        $id = $_POST["check"];
 
-    $conn->beginTransaction();
-    update_finished($conn, $id);
+        if(update_finished($conn, $id);
+    }
+    $result = list_select($conn);
+
+    if(auto_update_finished($conn);
     $conn->commit();
 
+} catch (Exception $e) {
+    if($boo_tran){
+        $conn->rollBack();
+    }
+    echo $e->getMessage();
+    exit;
 }
-$result = list_select($conn);
-
-$conn->beginTransaction();
-auto_update_finished($conn);
-$conn->commit();
 
 
 PDO_del($conn);
