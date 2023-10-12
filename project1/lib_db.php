@@ -42,11 +42,11 @@ function finished_list_select(&$conn){
 		$sql=
 		" select "
 		."	j.id "
-		."	.j.item_name "
-		."	.j.amount "
-		."	.j.d_day "
-		."	.j.finished_at "
-		."	.t.tag_img "
+		."	,j.item_name "
+		."	,j.amount "
+		."	,j.d_day "
+		."	,j.finished_at "
+		."	,t.tag_img "
 		." from "
 		."	 jang j "
 		." 	join "
@@ -57,7 +57,7 @@ function finished_list_select(&$conn){
 		."     j.finished = 1 "
 		." order by "
 		."     j.d_day desc "
-		."     .j.id desc "
+		."     ,j.id desc "
 		;
 		$arr_ps=[
 		];

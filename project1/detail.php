@@ -1,16 +1,17 @@
 <?php
-define( "ROOT", $_SERVER["DOCUMENT_ROOT"]);
-define( "FILE_HEADER", ROOT ."/Project1_ysj/header.php" );
-define( "FILE_FOOTER", ROOT ."/project1_yhh/footer.php" );
-require_once( ROOT ."/project1/lib_db_kkh.php" );
+define( "ROOT", $_SERVER["DOCUMENT_ROOT"]."/project1");
+define( "FILE_HEADER", ROOT ."/header.php" );
+define( "FILE_FOOTER", ROOT ."/footer.php" );
+require_once( ROOT ."/lib_db.php" );
 
-$id = '';
-$conn = null;
 $id = $_GET["id"];
+$conn = null;
+
 // var_dump($id);
 PDO_set($conn);
-$result = detail_select( $conn, $id );
-// var_dump($result);
+$result[0] = detail_select( $conn, $id );
+$item = $result[0][0];
+
 
 
 ?>
@@ -20,7 +21,7 @@ $result = detail_select( $conn, $id );
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=tk, initial-scale=1.0">
-	<link rel="stylesheet" href="../project_890.css">
+	<link rel="stylesheet" href="/project1/project_890.css">
 	<title>상세페이지</title>
 </head>
 <body>
@@ -30,25 +31,26 @@ $result = detail_select( $conn, $id );
 		<!-- <h1><img class=img_cart src="./cart.png" alt="">장보자</h1> -->
 	
 	<main class="container">
+	
 		<div>
-			<img class=img_dt src="./ecnc0cbcf71-706c-43bd-8744-1bc239cb2b19.jpg" alt="">
+			<img class=img_dt src="" alt="">
 			<div>
 				<div class="div_ylw">
 					제목명
 				</div>
 				<div class="div_wt">
-					<?php echo $result["item_name"];?>
+					<?php echo $item["item_name"];?>
 				</div>
 			</div>
 			<div class="div_memo">
-				<?php echo $result["memo"];?>
+				<?php echo $item["memo"];?>
 			</div>
 			<div>
 				<div class="div_ylw">
 					수량
 				</div>
 				<div class="div_wt">
-					<?php echo $result["amount"]?>
+					<?php echo $item["amount"];?>
 			</div>
 			</div>
 			<div>
@@ -56,7 +58,7 @@ $result = detail_select( $conn, $id );
 					태그
 				</div>
 				<div class="div_wt">
-					<?php echo $result["tag_id"]?>
+					<?php echo $item["tag_id"];?>
 				</div>
 			</div>
 			<div>
@@ -64,14 +66,17 @@ $result = detail_select( $conn, $id );
 					기한
 				</div>
 				<div class="div_wt">
-				<?php echo $result["d_day"]?>
+				<?php echo $item["d_day"];?>
 				</div>
 			</div>
 		</div>
 		
+	
+	
+		
 		<section>
 			<a class="detail" href="">삭제</a>
-			<a class="detail" href="">취소</a>
+			<a class="detail" href="/project1/list.php">취소</a>
 		</section>
 	</main>
 	
