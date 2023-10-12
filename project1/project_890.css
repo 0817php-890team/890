@@ -333,7 +333,7 @@ main {
 	font-weight: bold;
 }
 
-form {
+.insert_ma {
 	width: 417px;
 	background-color: rgba(40, 40, 100, 1);
 	border: none;

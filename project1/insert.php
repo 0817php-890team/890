@@ -1,8 +1,8 @@
 <?php
-define( "ROOT", $_SERVER["DOCUMENT_ROOT"]);
-define( "FILE_HEADER", ROOT ."/Project1_ysj/header.php" );
-define( "FILE_FOOTER", ROOT ."/project1_yhh/footer.php" );
-require_once( ROOT ."/project1/lib_db_kkh.php" );
+define( "ROOT", $_SERVER["DOCUMENT_ROOT"]."/project1");
+define( "FILE_HEADER", ROOT ."/header.php" );
+define( "FILE_FOOTER", ROOT ."/footer.php" );
+require_once( ROOT ."/lib_db.php" );
 
 
 // var_dump();
@@ -75,7 +75,7 @@ $content="";
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../project_890.css">
+	<link rel="stylesheet" href="/project1/project_890.css">
 	<title>작성 페이지</title>
 </head>
 <body>
@@ -83,46 +83,48 @@ $content="";
 		require_once(FILE_HEADER);
 	?>
 	<main>
-		<form action="#">
-			<div class="insert_div">
-				<div class="insert_tit">제품명</div>
-				<input class="insert_in2" type="text" maxlength="50" required>
-				<div class="insert_te"></div>
+		<form action="/project1/insert.php" method="post">
+			<div class="insert_ma">
+					<div class="insert_div">
+					<div class="insert_tit">제품명</div>
+					<input class="insert_in2" type="text" maxlength="50" required>
+					<div class="insert_te"></div>
+				</div>
+				<textarea class="insert_me" name="memo" id="memo" cols="25" rows="30" placeholder="메모"></textarea>
+				<div class="insert_div">
+					<div class="insert_tit">수량</div>
+					<input class="insert_in2" type="number" min="0" max="50" required>
+					<div class="insert_te"></div>
+				</div>
+				<div class="insert_div">
+					<div class="insert_tit">태그</div>
+					<select class="insert_in2" name="tag" id="tag">
+						<option value="" selected disabled hidden>선택해주세요</option>
+						<option value="clothes">패션/뷰티</option>
+						<option value="food">식품/생활</option>
+						<option value="closet">가구/홈/데코</option>
+						<option value="degital">가전/디지털</option>
+						<option value="pet">반려동물/취미</option>
+					</select>
+					<div class="insert_te"></div>
+				</div>
+				<div class="insert_div">
+					<div class="insert_tit">기한</div>
+					<input class="insert_in2" type="date" name="date" required>
+					<div class="insert_te"></div>
+				</div>
+				<div class="insert_div">
+					<label for="file">
+						<div class="insert_tit">파일첨부</div>
+					</label>
+					<div class="insert_te"><input class="input_f" type="file" name="file" id="file"></div>
+				</div>
 			</div>
-			<textarea class="insert_me" name="memo" id="memo" cols="25" rows="30" placeholder="메모"></textarea>
-			<div class="insert_div">
-				<div class="insert_tit">수량</div>
-				<input class="insert_in2" type="number" min="0" max="50" required>
-				<div class="insert_te"></div>
-			</div>
-			<div class="insert_div">
-				<div class="insert_tit">태그</div>
-				<select class="insert_in2" name="tag" id="tag">
-					<option value="" selected disabled hidden>선택해주세요</option>
-					<option value="clothes">패션/뷰티</option>
-					<option value="food">식품/생활</option>
-					<option value="closet">가구/홈/데코</option>
-					<option value="degital">가전/디지털</option>
-					<option value="pet">반려동물/취미</option>
-				</select>
-				<div class="insert_te"></div>
-			</div>
-			<div class="insert_div">
-				<div class="insert_tit">기한</div>
-				<input class="insert_in2" type="date" name="date" required>
-				<div class="insert_te"></div>
-			</div>
-			<div class="insert_div">
-				<label for="file">
-					<div class="insert_tit">파일첨부</div>
-				</label>
-				<div class="insert_te"><input class="input_f" type="file" name="file" id="file"></div>
-			</div>
+			<section class="insert_set">
+				<button class="insert_se" type="submit">작성</button>
+				<a class="insert_se" href="/project1/list.php">취소</a>
+			</section>
 		</form>
-		<section class="insert_set">
-			<button class="insert_se" type="submit">작성</button>
-			<a class="insert_se" href="#">취소</a>
-		</section>
 	</main>
 	<?php require_once(FILE_FOOTER); ?>
 </body>
