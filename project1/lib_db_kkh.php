@@ -30,6 +30,48 @@ function PDO_del(&$conn){
 	$conn=null;
 }
 
+// -----------------------------------------------------------
+// 함수명 : finished_list_select
+// 기능 : list 완료 항목 조회
+// 파라미터 : PDO   &$conn
+// 리턴 : array / false
+// -----------------------------------------------------------
+function finished_list_select(&$conn){
+
+	try{
+		$sql=
+		" select "
+		."	j.id "
+		."	,j.item_name "
+		."	,j.amount "
+		."	,j.d_day "
+		."	,j.finished_at "
+		."	,t.tag_img "
+		." from "
+		."	 jang j "
+		." 	join "
+		."	  tag_type t "
+		."   on "
+		."     j.tag_id = t.tag_id "
+		." where "
+		."     j.finished = 1 "
+		." order by "
+		."     j.d_day desc "
+		."     ,j.id desc "
+		;
+		$arr_ps=[
+		];
+
+		$stmt=$conn->prepare($sql);
+		$stmt->execute();
+		$result=$stmt->fetchAll();
+
+		return $result;
+
+	} catch(Exception $e){
+		return false;
+	}
+}
 
 // -----------------------------------------------------------
 // 함수명 : list_select
@@ -57,6 +99,7 @@ function list_select(&$conn){
 		."     j.finished = 0 "
 		." order by "
 		."     j.d_day desc "
+		."     ,j.id desc "
 		;
 		$arr_ps=[
 		];
@@ -64,6 +107,38 @@ function list_select(&$conn){
 		$stmt=$conn->prepare($sql);
 		$stmt->execute();
 		$result=$stmt->fetchAll();
+
+		return $result;
+
+	} catch(Exception $e){
+		return false;
+	}
+}
+
+// -----------------------------------------------------------
+// 함수명 : update_finished
+// 기능 : finished 0에서 1로
+// 파라미터 : PDO   &$conn
+//			  id	item["id"]
+// 리턴 : bool / false
+// -----------------------------------------------------------
+function update_finished(&$conn, $id){
+
+	try{
+		$sql=
+		" update "
+		."	jang "
+		." set "
+		."  	finished = '1' "
+		." where "
+		."  	id = :id "
+		;
+		$arr_ps=[
+			":id" => $id
+		];
+
+		$stmt=$conn->prepare($sql);
+		$result=$stmt->execute($arr_ps);
 
 		return $result;
 
