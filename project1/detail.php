@@ -33,13 +33,22 @@ $item = $result[0][0];
 	<main class="container">
 	
 		<div>
-			<img class=img_dt src="" alt="">
+			<?php 
+				if($item["img"] === null){
+			?><?php
+				} else {
+				?>
+				<img class=img_dt src="" alt="">
+				<?php
+				}
+			?>
+			
 			<div>
 				<div class="div_ylw">
 					제목명
 				</div>
 				<div class="div_wt">
-					<?php echo $item["item_name"];?>
+					<span class="test">치킨묵자<?php //echo $item["item_name"];?></span>
 				</div>
 			</div>
 			<div class="div_memo">
@@ -57,8 +66,8 @@ $item = $result[0][0];
 				<div class="div_ylw">
 					태그
 				</div>
-				<div class="div_wt">
-					<?php echo $item["tag_id"];?>
+				<div class="div_wt">반려동물/취미
+					<?php //echo $item["tag_name"];?>
 				</div>
 			</div>
 			<div>
@@ -75,8 +84,9 @@ $item = $result[0][0];
 	
 		
 		<section>
-			<a class="detail" href="">삭제</a>
 			<a class="detail" href="/project1/list.php">취소</a>
+			<a class="detail" href="">삭제</a>
+			
 		</section>
 	</main>
 	

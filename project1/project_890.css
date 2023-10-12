@@ -97,12 +97,15 @@ main>div>div{
 .div_wt{
 	background-color: #ffffff;
 	width: 300px;
-	height: 47px;
 	
+	padding: 6px 10px 10px 120px;
 	border-radius: 10px;
 	text-align: center;
 }
 
+.test {
+	/* margin-left: 20px; */
+}
 
 .div_ylw{
 	background-color: #ffcf02;
