@@ -21,6 +21,12 @@ if($http_method === "POST") {
 }
 $result = list_select($conn);
 
+$conn->beginTransaction();
+auto_update_finished($conn);
+$conn->commit();
+
+
+PDO_del($conn);
 // var_dump($result);
 ?>
 

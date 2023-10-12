@@ -11,7 +11,7 @@ $id = $_GET["id"];
 PDO_set($conn);
 $result = detail_select( $conn, $id );
 // var_dump($result);
-
+auto_update_finished($conn);
 
 ?>
 
