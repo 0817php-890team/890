@@ -1,8 +1,8 @@
 <?php
-define( "ROOT", $_SERVER["DOCUMENT_ROOT"] ."/project1/" );
-define( "FILE_HEADER", "header.php" );
-define( "FILE_FOOTER", "footer.php" );
-require_once( ROOT ."lib_db_kkh.php" );
+define( "ROOT", $_SERVER["DOCUMENT_ROOT"]);
+define( "FILE_HEADER", ROOT ."/Project1_ysj/header.php" );
+define( "FILE_FOOTER", ROOT ."/project1_yhh/footer.php" );
+require_once( ROOT ."/project1/lib_db_kkh.php" );
 
 $http_method = $_SERVER["REQUEST_METHOD"];
 $conn=null;
@@ -11,7 +11,7 @@ $nowTime = new DateTime(date("Y-m-d"));
 PDO_set($conn);
 
 if($http_method === "POST") {
-    var_dump($_POST);
+    // var_dump($_POST);
     $id = $_POST["check"];
 
     $conn->beginTransaction();
@@ -28,14 +28,15 @@ $result = list_select($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="project1/common.css">
+    <link rel="stylesheet" href="../project_890.css">
     <title>리스트 페이지</title>
 </head>
 <body>
-    <main id="container">
     <?php
         require_once(FILE_HEADER);
     ?>
+    <main id="container">
+    
         <form action="list.php" method="post">
             <table>
             <?php foreach($result as $item) { ?>
@@ -47,7 +48,7 @@ $result = list_select($conn);
                 ?>
                 <tr>
                     <td><div class="L">🌭<?php //echo $item["tag_img"]; ?></div></td>
-                    <td><a class="item_name" href="/890_detail.php/?id=<?php echo $item["id"]; ?>">
+                    <td><a class="item_name" href="/project1_yhh/890_detail.php/?id=<?php echo $item["id"]; ?>">
                         <?php echo $item["item_name"]; ?></a>
                     </td>
                     <td><div><?php echo $item["amount"] ." 개"; ?></div></td>
