@@ -5,7 +5,7 @@
         </a>
     </div>
     <div>
-        <a href="">
+        <a href="/Project1_ysj/insert.php">
             <img class=img_plus src="../img/plus2.png" alt="">
         </a>
     </div>

@@ -6,8 +6,8 @@ require_once( ROOT ."/project1/lib_db_kkh.php" );
 
 $id='';
 $conn=null;
-$id= $_GET["id"];
-PDO_set($conn);
+// $id= $_GET["id"];
+// PDO_set($conn);
 
 
 ?>
