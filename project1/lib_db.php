@@ -42,11 +42,11 @@ function finished_list_select(&$conn){
 		$sql=
 		" select "
 		."	j.id "
-		."	,j.item_name "
-		."	,j.amount "
-		."	,j.d_day "
-		."	,j.finished_at "
-		."	,t.tag_img "
+		."	.j.item_name "
+		."	.j.amount "
+		."	.j.d_day "
+		."	.j.finished_at "
+		."	.t.tag_img "
 		." from "
 		."	 jang j "
 		." 	join "
@@ -57,7 +57,7 @@ function finished_list_select(&$conn){
 		."     j.finished = 1 "
 		." order by "
 		."     j.d_day desc "
-		."     ,j.id desc "
+		."     .j.id desc "
 		;
 		$arr_ps=[
 		];
@@ -130,6 +130,7 @@ function update_finished(&$conn, $id){
 		."	jang "
 		." set "
 		."  	finished = '1' "
+		."  	,finished_at = date(now()) "
 		." where "
 		."  	id = :id "
 		;
@@ -146,6 +147,38 @@ function update_finished(&$conn, $id){
 		return false;
 	}
 }
+
+// -----------------------------------------------------------
+// 함수명 : auto_update_finished
+// 기능 : 자동 finished 0에서 1로
+// 파라미터 : PDO   &$conn
+// 리턴 : bool / false
+// -----------------------------------------------------------
+function auto_update_finished(&$conn){
+
+	try{
+		$sql=
+		" update "
+		."	jang "
+		." set "
+		."  	finished = '1' "
+		."  	,finished_at = date(now()) "
+		." where "
+		."  	date(now()) < d_day "
+		;
+		$arr_ps=[
+		];
+
+		$stmt=$conn->prepare($sql);
+		$result=$stmt->execute();
+
+		return $result;
+
+	} catch(Exception $e){
+		return false;
+	}
+}
+
 function detail_select(&$conn,&$arr_param){
 	try{
 		$sql= " SELECT "

@@ -1,8 +1,8 @@
 <?php
-define( "ROOT", $_SERVER["DOCUMENT_ROOT"]);
-define( "FILE_HEADER", ROOT ."/Project1_ysj/header.php" );
-define( "FILE_FOOTER", ROOT ."/project1_yhh/footer.php" );
-require_once( ROOT ."/project1/lib_db_kkh.php" );
+define( "ROOT", $_SERVER["DOCUMENT_ROOT"] ."/project1");
+define( "FILE_HEADER", ROOT ."/header.php" );
+define( "FILE_FOOTER", ROOT ."/footer.php" );
+require_once( ROOT ."/lib_db.php" );
 
 $http_method = $_SERVER["REQUEST_METHOD"];
 $conn=null;
@@ -20,6 +20,7 @@ if($http_method === "POST") {
 
 }
 $result = list_select($conn);
+
 // var_dump($result);
 ?>
 
@@ -28,7 +29,7 @@ $result = list_select($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../project_890.css">
+    <link rel="stylesheet" href="/project1/project_890.css">
     <title>리스트 페이지</title>
 </head>
 <body>
@@ -37,7 +38,7 @@ $result = list_select($conn);
     ?>
     <main id="container">
     
-        <form action="list.php" method="post">
+        <form action="/project1/list.php" method="post">
             <table>
             <?php foreach($result as $item) { ?>
                 <?php 
@@ -48,7 +49,7 @@ $result = list_select($conn);
                 ?>
                 <tr>
                     <td><div class="L">🌭<?php //echo $item["tag_img"]; ?></div></td>
-                    <td><a class="item_name" href="/project1/detail.php<?php ///?id= echo $item["id"]; ?>">
+                    <td><a class="item_name" href="/project1/detail.php?id=<?php echo $item["id"]; ?>">
                         <?php echo $item["item_name"]; ?></a>
                     </td>
                     <td><div><?php echo $item["amount"] ." 개"; ?></div></td>
