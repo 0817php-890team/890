@@ -31,13 +31,22 @@ auto_update_finished($conn);
 	
 	<main class="container">
 		<div>
-			<img class=img_dt src="./ecnc0cbcf71-706c-43bd-8744-1bc239cb2b19.jpg" alt="">
+			<?php 
+				if($item["img"] === null){
+			?><?php
+				} else {
+				?>
+				<img class=img_dt src="" alt="">
+				<?php
+				}
+			?>
+			
 			<div>
 				<div class="div_ylw">
 					제목명
 				</div>
 				<div class="div_wt">
-					<?php echo $result["item_name"];?>
+					<span class="test">치킨묵자<?php //echo $item["item_name"];?></span>
 				</div>
 			</div>
 			<div class="div_memo">
@@ -55,8 +64,8 @@ auto_update_finished($conn);
 				<div class="div_ylw">
 					태그
 				</div>
-				<div class="div_wt">
-					<?php echo $result["tag_id"]?>
+				<div class="div_wt">반려동물/취미
+					<?php //echo $item["tag_name"];?>
 				</div>
 			</div>
 			<div>
@@ -70,8 +79,9 @@ auto_update_finished($conn);
 		</div>
 		
 		<section>
+			<a class="detail" href="/project1/list.php">취소</a>
 			<a class="detail" href="">삭제</a>
-			<a class="detail" href="">취소</a>
+			
 		</section>
 	</main>
 	
