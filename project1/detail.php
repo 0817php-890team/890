@@ -30,16 +30,16 @@ $item = $result[0][0];
 	?>
 		
 	
-	<main class="container">
+	<main id="container">
 	
-		<div class="detail_ma"><img src="../img/aircon.png" alt="">
+		<div class="insert_ma">
 		<?php
-			//if($item["img"]=== null){
-				//echo null ;
-			//}else{
+			if($item["img"]=== null){
+				echo null ;
+			}else{
 
 			?>
-			
+			<img class=img_dt src="<?php echo $item["img"];?>" alt=""><?php };?>
 			<div >
 				<div class="div_ylw">
 					제목명
