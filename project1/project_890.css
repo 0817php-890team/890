@@ -1,48 +1,66 @@
 *{
 	margin: 0 auto;
 	padding: 0;
-	
-	
-		font-family: 'Yeongdeok Haeparang';
-		/* font-weight: 700; */
-		src: local('Yeongdeok Haeparang.otf'),
-	
-	
+	font-family: 'Yeongdeok Haeparang';
+	/* font-weight: 700; */
 }
 
 html {
 	height: 900px;
 }
 
-h1 {
-    width: 500px;
-    height: 138px;
-    background-color:rgba(255, 207, 2, 1);
-    border: 1px solid none;
-    text-align: center;
-    height: 138px;
-    font-weight: bold;
-    font-size: 89px;
-    color: white;
-    box-sizing: border-box;
-}
-/* header{
-	background-color: #ffcf02;
-	text-align: center;
+header >.container {
+	width: 500px;
 	height: 138px;
-	font-size: 89px;
+	background-color:rgba(255, 207, 2, 1);
 	
-} */
-header>div:first-letter{
-	color: #ffffff;
 }
+
+.container > * {
+	font-family: 'Yeongdeok Snow Crab';
+	line-height: 20px;
+}
+
+.header_div {
+	overflow: hidden;
+	width: 80px;
+	height: 80px;
+	margin: 30px 0 0 65px;
+	float: left;
+}
+
+.header_div > img {
+	width: 100%;
+}
+
+.header_h1 {
+	color: white;
+	font-weight: bold;
+	font-size: 89px;
+	line-height: 150px;
+	background-color: transparent;
+	/* display: inline-block; */
+	margin-left: 20px;
+	position: relative;
+	float: left;
+}
+
+.header_h2 {
+	color: black;
+	font-weight: bold;
+	font-size: 89px;
+	line-height: 150px;
+	background-color: transparent;
+	/* display: inline-block; */
+	/* position: absolute; */
+	/* top: 20px; */
+	float: left;
+}
+
+
 main{
 	margin: 30px auto  ;
 	height: 763px;
-	
-	
-	
-	
 }
 
 .container {
@@ -186,9 +204,9 @@ body {
     height: 763px;
 }
 
-header h1 {
+/* header h1 {
     margin: 0;
-}
+} */
 
 main {
     height: 100%;
@@ -320,18 +338,6 @@ td>div, button.R {
 	padding: 0px;
 }
 
-h1 {
-	width: 500px;
-	height: 138px;
-	background-color:rgba(255, 207, 2, 1);
-	border: 1px solid none;
-	text-align: center;
-	line-height: 138px;
-	font-weight: bold;
-	font-size: 89px;
-	color: white;
-	box-sizing: border-box;
-}
 
 body {
 	width: 500px;
