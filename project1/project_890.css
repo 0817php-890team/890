@@ -96,8 +96,8 @@ main>div>div{
 
 .div_wt{
 	background-color: #ffffff;
-	width: 300px;
-	
+	width: 320px;
+	min-height: 47px;
 	padding: 6px 10px 10px 120px;
 	border-radius: 10px;
 	text-align: center;
@@ -121,7 +121,7 @@ main>div>div{
 }
 
 .div_memo{
-	width: 300px;
+	width: 320px;
 	height: auto;
 	background-color: #ffffff;
 	

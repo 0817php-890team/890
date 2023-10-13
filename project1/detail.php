@@ -5,12 +5,15 @@ define( "FILE_FOOTER", ROOT ."/footer.php" );
 require_once( ROOT ."/lib_db.php" );
 
 $id = $_GET["id"];
+$page = $_GET["page"];
 $conn = null;
-
+var_dump($page);
 // var_dump($id);
+
 PDO_set($conn);
 $result[0] = detail_select( $conn, $id );
 $item = $result[0][0];
+
 
 
 
@@ -82,7 +85,7 @@ $item = $result[0][0];
 		
 		<section class="insert_set">
 			<a class="insert_se" href="">삭제</a>
-			<a class="insert_se" href="/project1/list.php">취소</a>
+			<a class="insert_se" href="/project1/list.php/?page=<?php echo $page;?>">취소</a>
 		</section>
 	</main>
 	
