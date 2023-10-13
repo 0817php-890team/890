@@ -221,6 +221,10 @@ main * {
     src: local('Yeongdeok Haeparang.otf'),
 }
 
+.list_m {
+	padding: 0px 43px;
+}
+
 #container {
     /* width: 500px; */
     height: 675px;
@@ -311,6 +315,11 @@ td>div, button.R {
     border: 0px solid black;
     background-color: #282864;
     padding: 0;
+}
+
+#finished_day {
+	font-size: 16px;
+	width: 80px;
 }
 
 .arrow{

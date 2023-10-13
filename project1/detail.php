@@ -28,13 +28,19 @@ $item = $result[0][0];
 	<?php
 		require_once(FILE_HEADER);
 	?>
-		<!-- <h1><img class=img_cart src="./cart.png" alt="">장보자</h1> -->
+		
 	
-	<main class="container">
+	<main id="container">
 	
-		<div>
-			<img class=img_dt src="" alt="">
-			<div>
+		<div class="insert_ma">
+		<?php
+			if($item["img"]=== null){
+				echo null ;
+			}else{
+
+			?>
+			<img class=img_dt src="<?php echo $item["img"];?>" alt=""><?php };?>
+			<div >
 				<div class="div_ylw">
 					제목명
 				</div>
@@ -58,7 +64,7 @@ $item = $result[0][0];
 					태그
 				</div>
 				<div class="div_wt">
-					<?php echo $item["tag_id"];?>
+					<?php echo $item["tag_name"];?>
 				</div>
 			</div>
 			<div>
@@ -74,9 +80,9 @@ $item = $result[0][0];
 	
 	
 		
-		<section>
-			<a class="detail" href="">삭제</a>
-			<a class="detail" href="/project1/list.php">취소</a>
+		<section class="insert_set">
+			<a class="insert_se" href="">삭제</a>
+			<a class="insert_se" href="/project1/list.php">취소</a>
 		</section>
 	</main>
 	
