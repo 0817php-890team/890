@@ -35,9 +35,12 @@ if($http_method === "POST") {
 				,"img" => $img
 				,"amount" => $amount
 			];
-
+// var_dump($arr_param); exit;
 			// insert
-			db_insert_boards($conn, $arr_param);
+			if(!db_insert_boards($conn, $arr_param)){
+				echo "헉 오류";
+				exit;
+			}
 
 			$conn->commit(); //모든 처리 완료 시 커밋
 
@@ -74,7 +77,7 @@ if($http_method === "POST") {
 				<textarea class="insert_me" name="memo" id="memo" cols="25" rows="30" placeholder="메모"></textarea>
 				<div class="insert_div">
 					<div class="insert_tit">수량</div>
-					<input class="insert_in2" type="number" min="0" max="50" required>
+					<input class="insert_in2" type="number" name="amount" min="0" max="50" required>
 					<div class="insert_te"></div>
 				</div>
 				<div class="insert_div">
