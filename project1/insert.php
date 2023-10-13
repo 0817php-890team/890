@@ -6,9 +6,9 @@ define( "ERROR_MSG_PARAM", "오류입니다~" );
 require_once( ROOT ."/lib_db.php" );
 
 
-// var_dump();
-
-
+// var_dump($_FILES);
+$target_dir = "img/"; // 아무것도 안적으면 htdocs에 바로 저장됨
+$uploadOk = 1;
 $http_method = $_SERVER["REQUEST_METHOD"];
 if($http_method === "POST") {
 		
@@ -19,9 +19,13 @@ if($http_method === "POST") {
 		//$item_name = isset($_POST["item_name"]) ? trim($_POST["item_name"]) : ""; // item_name 셋팅
 		$tag_id = isset($_POST["tag_id"]) ? trim($_POST["tag_id"]) : ""; // tag_id 셋팅
 		$d_day = isset($_POST["d_day"]) ? trim($_POST["d_day"]) : ""; // finished_at 셋팅
-		$img = isset($_POST["img"]) ? trim($_POST["img"]) : ""; // img 셋팅
+		$img = isset($_FILES["img"]) ? $_FILES["img"]["name"] : ""; // img 셋팅
+		// var_dump($img);
 		$memo = isset($_POST["memo"]) ? trim($_POST["memo"]) : ""; // img 셋팅
 		$amount = isset($_POST["amount"]) ? trim($_POST["amount"]) : ""; // img 셋팅
+		$target_file = $target_dir.basename($_FILES["img"]["name"]); 
+		$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
 		// var_dump($item_name);
 			PDO_set($conn);
 			$conn->beginTransaction(); // 트랜잭션 시작
@@ -36,19 +40,44 @@ if($http_method === "POST") {
 				,"amount" => $amount
 			];
 // var_dump($arr_param); exit;
-			// insert
-			if(!db_insert_boards($conn, $arr_param)){
-				echo "헉 오류";
-				exit;
-			}
 
-			$conn->commit(); //모든 처리 완료 시 커밋
+			// 이미지용 코드
+			// $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+			// print_r($check);
+			// echo "<br>↑check<br><br>";
+			// if($check !== false) {
+			// echo "Type : " . $check["mime"] . "."."<br><br>";
+			// $uploadOk = 1;
+			// } else {
+			// echo "Type : Not image"."<br><br>";
+			// $uploadOk = 0;
+			// }
+			
+			
 
-			// 리스트 페이지로 이동
-			header("Location: list.php");
-			exit;
+			// if (file_exists($target_file)) {
+			// 	echo "-중복"."<br><br>";
+			// 	$uploadOk = 0;
+			//   }
+				var_dump($imageFileType);
+			  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+				&& $imageFileType != "gif" && $imageFileType != "") {
+				$uploadOk = 0;
+				} else {
+					if($imageFileType != ""){
+						move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+					} else {
+						echo "업로드 안함";
+					}
 
-
+					if(!db_insert_boards($conn, $arr_param)){
+						echo "헉 오류";
+						// exit;
+					}
+					$conn->commit();
+					header("Location: list.php");
+					// exit;
+				}
 		}
 
 
@@ -66,8 +95,8 @@ if($http_method === "POST") {
 	<?php
 		require_once(FILE_HEADER);
 	?>
-	<main>
-		<form action="/project1/insert.php" method="post">
+	<main id="container">
+		<form action="/project1/insert.php" method="post" enctype="multipart/form-data">
 			<div class="insert_ma">
 					<div class="insert_div">
 					<div class="insert_tit">제품명</div>
@@ -101,8 +130,15 @@ if($http_method === "POST") {
 					<label for="file">
 						<div class="insert_tit">파일첨부</div>
 					</label>
-					<div class="insert_te"><input class="input_f" type="file" name="file" id="file"></div>
+					<div class="insert_te"><input class="input_f" type="file" name="img" id="img"></div>
 				</div>
+				<?php
+				if($uploadOk == 0){
+					?>
+					<p class="insert_uploadOk">이미지파일형식이 아닙니다</p>
+				<?php
+				}
+				?>
 			</div>
 			<section class="insert_set">
 				<button class="insert_se" type="submit">작성</button>

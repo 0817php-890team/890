@@ -7,14 +7,14 @@ require_once( ROOT ."/lib_db.php" );
 $id = $_GET["id"];
 $page = $_GET["page"];
 $conn = null;
-var_dump($page);
-// var_dump($id);
+// var_dump($page);
+
 
 PDO_set($conn);
 $result[0] = detail_select( $conn, $id );
 $item = $result[0][0];
 
-
+// var_dump($item["img"]);
 
 
 ?>
@@ -37,11 +37,11 @@ $item = $result[0][0];
 	
 		<div class="insert_ma">
 		<?php
-			if( isset($item["img"]) === false || $item["img"] === null){
+			if( $item["img"] == "" || $item["img"] === null){
 			}else{
 
 			?>
-			<img class=img_dt src="<?php echo $item["img"];?>" alt=""><?php };?>
+			<img class=img_dt src="/project1/img/<?php echo $item["img"];?>" alt=""><?php };?>
 			<div >
 				<div class="div_ylw">
 					제목명
