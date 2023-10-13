@@ -42,11 +42,11 @@ function finished_list_select(&$conn){
 		$sql=
 		" select "
 		."	j.id "
-		."	.j.item_name "
-		."	.j.amount "
-		."	.j.d_day "
-		."	.j.finished_at "
-		."	.t.tag_img "
+		."	,j.item_name "
+		."	,j.amount "
+		."	,j.d_day "
+		."	,j.finished_at "
+		."	,t.tag_img "
 		." from "
 		."	 jang j "
 		." 	join "
@@ -56,8 +56,8 @@ function finished_list_select(&$conn){
 		." where "
 		."     j.finished = 1 "
 		." order by "
-		."     j.d_day desc "
-		."     .j.id desc "
+		."     j.finished_at desc "
+		."     ,j.id desc "
 		;
 		$arr_ps=[
 		];
@@ -98,7 +98,7 @@ function list_select(&$conn){
 		." where "
 		."     j.finished = 0 "
 		." order by "
-		."     j.d_day desc "
+		."     j.d_day "
 		."     ,j.id desc "
 		;
 		$arr_ps=[
@@ -130,7 +130,7 @@ function update_finished(&$conn, $id){
 		."	jang "
 		." set "
 		."  	finished = '1' "
-		."  	,finished_at = date(now()) "
+		."  	,finished_at = timestamp(NOW()) "
 		." where "
 		."  	id = :id "
 		;
@@ -170,7 +170,8 @@ function auto_update_finished(&$conn){
 		];
 
 		$stmt=$conn->prepare($sql);
-		$result=$stmt->execute();
+		$stmt->execute();
+		$result=$stmt->fetchAll();
 
 		return $result;
 
