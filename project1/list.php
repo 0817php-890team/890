@@ -8,6 +8,7 @@ $http_method = $_SERVER["REQUEST_METHOD"];
 $conn=null;
 $id="";
 $nowTime = new DateTime(date("Y-m-d"));
+
 $boo_tran=false;
 PDO_set($conn);
 
@@ -15,7 +16,7 @@ try {
     $boo_tran = $conn->beginTransaction();
 
     if($http_method === "POST") {
-        var_dump($_POST);
+        // var_dump($_POST);
         $id = $_POST["check"];
 
         if(update_finished($conn, $id) === false){
@@ -27,8 +28,8 @@ try {
         throw new Exception("List error");
     }
     $result = list_select($conn);
-    foreach ($result as $key => $value) {
-        if($value["d_day"] <= date("Y-m-d")){
+    foreach ($result as $value) {
+        if($value["d_day"] < date("Y-m-d")){
             if(auto_update_finished($conn) === false){
                 throw new Exception("Auto check error");
             }
@@ -49,6 +50,7 @@ try {
     echo $e->getMessage();
     exit;
 } finally {
+    // var_dump(basename($_SERVER['PHP_SELF']));
     PDO_del($conn);
 }
 
