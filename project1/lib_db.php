@@ -57,7 +57,7 @@ function finished_list_select(&$conn){
 		."     j.finished = 1 "
 		." order by "
 		."     j.finished_at desc "
-		."     ,j.id desc "
+		."     ,j.d_day desc "
 		;
 		$arr_ps=[
 		];
@@ -232,8 +232,8 @@ function db_insert_boards(&$conn, &$arr_param) {
 		) "
 		." VALUES ( "
 		." 		:item_name "
-		."		,:amount "
-		."		,:memo "
+		."		,{$arr_param["amount"]} "
+		."		,{$arr_param["memo"]} "
 		."		,:tag_id "
 		."		,:d_day "
 		."		,:img "
@@ -243,10 +243,8 @@ function db_insert_boards(&$conn, &$arr_param) {
 	$arr_ps = [
 		":item_name" => $arr_param["item_name"]
 		,":tag_id" => $arr_param["tag_id"]
-		,":d_day" => $arr_param["d_day"]
+		,":finished_at" => $arr_param["finished_at"]
 		,":img" => $arr_param["img"]
-		,":amount" => $arr_param["amount"]
-		,":memo" => $arr_param["memo"]
 	];
 
 	try {
@@ -254,7 +252,6 @@ function db_insert_boards(&$conn, &$arr_param) {
 		$result = $stmt->execute($arr_ps);
 		return $result; // 정상 : 쿼리 결과 리턴
 	} catch(Exception $e) {
-		echo $e->getMessage();
 		return false; // 예외발생 : flase 리턴
 	}
 }
