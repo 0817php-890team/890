@@ -164,7 +164,7 @@ function auto_update_finished(&$conn){
 		."  	finished = '1' "
 		."  	,finished_at = date(now()) "
 		." where "
-		."  	date(now()) < d_day "
+		."  	date(now()) > d_day "
 		;
 		$arr_ps=[
 		];
@@ -188,11 +188,16 @@ function detail_select(&$conn,&$arr_param){
 		  ." ,d_day "
 		  ." ,finished "
 		  ." ,finished_at "
-		  ." ,tag_id "
+		  ." ,j.tag_id "
 		  ." ,img "
 		  ." ,memo "
+		  ." ,t.tag_name "
 		  ." FROM "
-		  ." jang "
+		  ." jang j "
+		  ." join "
+		  ." tag_type t "
+		  ." on "
+		  ." j.tag_id = t.tag_id "
 		  ." WHERE "
 		  ." id= :id " 
 		  ;

@@ -91,7 +91,7 @@ if($http_method === "POST") {
 				</div>
 				<div class="insert_div">
 					<div class="insert_tit">기한</div>
-					<input class="insert_in2" type="date" name="date" required>
+					<input class="insert_in2" type="date" name="d_day" required>
 					<div class="insert_te"></div>
 				</div>
 				<div class="insert_div">
