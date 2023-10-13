@@ -59,7 +59,7 @@ if($http_method === "POST") {
 			// 	echo "-중복"."<br><br>";
 			// 	$uploadOk = 0;
 			//   }
-				var_dump($imageFileType);
+				// var_dump($imageFileType);
 			  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 				&& $imageFileType != "gif" && $imageFileType != "") {
 				$uploadOk = 0;
@@ -95,7 +95,7 @@ if($http_method === "POST") {
 	<?php
 		require_once(FILE_HEADER);
 	?>
-	<main id="container">
+	<main class="insert_main">
 		<form action="/project1/insert.php" method="post" enctype="multipart/form-data">
 			<div class="insert_ma">
 					<div class="insert_div">
@@ -103,7 +103,7 @@ if($http_method === "POST") {
 					<input class="insert_in2" type="text" name="item_name" maxlength="50" required>
 					<div class="insert_te"></div>
 				</div>
-				<textarea class="insert_me" name="memo" id="memo" cols="25" rows="30" placeholder="메모"></textarea>
+				<textarea class="insert_me" name="memo" id="memo" placeholder="메모"></textarea>
 				<div class="insert_div">
 					<div class="insert_tit">수량</div>
 					<input class="insert_in2" type="number" name="amount" min="0" max="50" required>

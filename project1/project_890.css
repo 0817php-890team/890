@@ -9,7 +9,7 @@ html {
 	height: 900px;
 }
 
-header >.container {
+header >.container { 
 	width: 500px;
 	height: 138px;
 	background-color:rgba(255, 207, 2, 1);
@@ -64,7 +64,7 @@ main{
 }
 
 .container {
-    /* width: 500px; */
+    width: 500px;
     height: 675px;
     
 }
@@ -114,15 +114,15 @@ main>div>div{
 
 .div_wt{
 	background-color: #ffffff;
-	width: 320px;
-	min-height: 47px;
+	width: 300px;
+	
 	padding: 6px 10px 10px 120px;
 	border-radius: 10px;
 	text-align: center;
 }
 
 .test {
-	/* margin-left: 20px; */
+	margin-left: 20px;
 }
 
 .div_ylw{
@@ -139,7 +139,7 @@ main>div>div{
 }
 
 .div_memo{
-	width: 320px;
+	width: 300px;
 	height: auto;
 	background-color: #ffffff;
 	
@@ -212,7 +212,7 @@ main {
     height: 100%;
     /* background-color: rgb(241, 187, 187); */
     /* margin-top: 137px; */
-    padding: 5% 0 0;
+    /* padding: 5% 0 0; */
 }
 
 main * {
@@ -226,7 +226,7 @@ main * {
 }
 
 #container {
-    /* width: 500px; */
+    width: 500px;
     height: 675px;
     overflow: auto;
 }
@@ -333,22 +333,23 @@ td>div, button.R {
 }
 
 /* ---------------------------------------- */
-* {
+/* * {
 	margin: 0px;
 	padding: 0px;
-}
+} */
 
 
 body {
 	width: 500px;
-	height: 900px;
+	/* height: 900px; */
 }
 
-main {
-	padding: 38px 42px;
+.insert_main {
+	/* padding: 38px 42px; */
 	color: white;
 	font-size: 22px;
 	font-weight: bold;
+	box-sizing: border-box;
 }
 
 .insert_ma {
@@ -362,6 +363,7 @@ main {
 }
 
 .insert_te {
+	margin: 0px;
 	width: 320px;
 	height: 47px;
 	background-color: white;
@@ -397,7 +399,16 @@ main {
 	line-height: 47px;
 }
 
-#file {
+/* #file {
+	color: #000;
+	line-height: 47px;
+	margin-left: 10%;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+
+.input_f {
 	color: #000;
 	line-height: 47px;
 	margin-left: 13%;
@@ -405,7 +416,6 @@ main {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 
 .insert_in2 {
 	position: absolute;
@@ -420,7 +430,7 @@ main {
 	border-radius: 0 10px 10px 0;
 }
 
-.form_a {
+/* .form_a {
 	width: 115px;
 	height: 47px;
 	background-color:rgba(255, 207, 2, 1) ;
@@ -430,12 +440,11 @@ main {
 	border-radius: 10px 0px 0px 10px;
 	color: white;
 	text-decoration: none;
-}
+} */
 
 textarea {
 	margin: 0;
-	width: 320px;
-	height: 100px;
+	width: 322px;
 	resize: none;
 	padding: 21px 24px;
 	box-sizing: border-box;
@@ -466,6 +475,10 @@ textarea {
 	box-sizing: border-box;
 	font-size: 22px;
 	border-radius: 10px;
+}
+
+.insert_uploadOk {
+	font-size: 15px;
 }
 
 .img_add{
