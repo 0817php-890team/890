@@ -306,6 +306,16 @@ td>div, button.R {
 .L {
     border-radius: 20% 0 0 20%;
     /* width: ; */
+	position: relative;
+	height: 70px;
+}
+
+.tag_img {
+	width: 39px;
+	height: 39px;
+	position: absolute;
+	top: 15px;
+	left: 15px;
 }
 
 .R {

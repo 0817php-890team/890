@@ -87,7 +87,7 @@ try {
                 </colgroup>
                 <?php foreach($result as $item) { ?>
                 <tr class="finished">
-                    <td><div class="L">🌭<?php //echo $item["tag_img"]; ?></div></td>
+                    <td><div class="L"><img class="tag_img" src="/project1/img/<?php echo $item["tag_img"]; ?>" alt=""></div></td>
                     <td><a class="item_name" href="/project1/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page; ?>">
                         <?php echo $item["item_name"]; ?></a>
                     </td>
@@ -104,7 +104,7 @@ try {
                         if($inter_day === 0){ $inter_day = "day"; }
                     ?>
                     <tr>
-                        <td><div class="L">🌭<?php //echo $item["tag_img"]; ?></div></td>
+                        <td><div class="L"><img class="tag_img" src="/project1/img/<?php echo $item["tag_img"]; ?>" alt=""></div></td>
                         <td><a class="item_name" href="/project1/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page; ?>">
                             <?php echo $item["item_name"]; ?></a>
                         </td>
