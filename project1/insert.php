@@ -22,7 +22,7 @@ if($http_method === "POST") {
 		$img = isset($_POST["img"]) ? trim($_POST["img"]) : ""; // img 셋팅
 		$memo = isset($_POST["memo"]) ? trim($_POST["memo"]) : ""; // img 셋팅
 		$amount = isset($_POST["amount"]) ? trim($_POST["amount"]) : ""; // img 셋팅
-		var_dump($item_name);
+		// var_dump($item_name);
 			PDO_set($conn);
 			$conn->beginTransaction(); // 트랜잭션 시작
 
@@ -37,13 +37,13 @@ if($http_method === "POST") {
 			];
 
 			// insert
-			// db_insert_boards($conn, $arr_param);
+			db_insert_boards($conn, $arr_param);
 
 			$conn->commit(); //모든 처리 완료 시 커밋
 
 			// 리스트 페이지로 이동
-			// header("Location: list.php");
-			// exit;
+			header("Location: list.php");
+			exit;
 
 
 		}
