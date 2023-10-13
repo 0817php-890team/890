@@ -88,7 +88,7 @@ try {
                 <?php foreach($result as $item) { ?>
                 <tr class="finished">
                     <td><div class="L">🌭<?php //echo $item["tag_img"]; ?></div></td>
-                    <td><a class="item_name" href="/project1/detail.php/?id=<?php echo $item["id"]; ?>">
+                    <td><a class="item_name" href="/project1/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page; ?>">
                         <?php echo $item["item_name"]; ?></a>
                     </td>
                     <td><div><?php echo $item["amount"] ." 개"; ?></div></td>
@@ -105,7 +105,7 @@ try {
                     ?>
                     <tr>
                         <td><div class="L">🌭<?php //echo $item["tag_img"]; ?></div></td>
-                        <td><a class="item_name" href="/project1/detail.php/?id=<?php echo $item["id"]; ?>">
+                        <td><a class="item_name" href="/project1/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page; ?>">
                             <?php echo $item["item_name"]; ?></a>
                         </td>
                         <td><div><?php echo $item["amount"] ." 개"; ?></div></td>
