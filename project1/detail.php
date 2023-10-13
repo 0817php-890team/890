@@ -37,8 +37,7 @@ $item = $result[0][0];
 	
 		<div class="insert_ma">
 		<?php
-			if($item["img"]=== null){
-				echo null ;
+			if( isset($item["img"]) === false || $item["img"] === null){
 			}else{
 
 			?>
