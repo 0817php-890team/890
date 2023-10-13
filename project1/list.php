@@ -8,7 +8,7 @@ $http_method = $_SERVER["REQUEST_METHOD"];
 $conn=null;
 $id="";
 $nowTime = new DateTime(date("Y-m-d"));
-$_GET["page"] == 1 ? $page = 1 : $page = 0;
+isset($_GET["page"]) && $_GET["page"] == 1 ? $page = 1 : $page = 0;
 
 $boo_tran=false;
 PDO_set($conn);

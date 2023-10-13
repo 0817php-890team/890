@@ -1,5 +1,5 @@
 <footer>
-		<?php if($_GET["page"] == 1){ ?>
+		<?php if(isset($_GET["page"]) && $_GET["page"] == 1){ ?>
 			<div><a href="/project1/list.php/?page=0"><img class=img_add src="../img/cart_add.png" alt=""></a></div>
 		<?php } else { ?>
 			<div><a href="/project1/list.php/?page=1"><img class=img_add src="../img/cart_add.png" alt=""></a></div>
