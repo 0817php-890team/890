@@ -4,14 +4,15 @@ define( "FILE_HEADER", ROOT ."/header.php" );
 define( "FILE_FOOTER", ROOT ."/footer.php" );
 require_once( ROOT ."/lib_db.php" );
 
-$id = '';
+$id = "";
 $conn = null;
 $id = $_GET["id"];
-// var_dump($id);
+var_dump($id);
 PDO_set($conn);
 $result = detail_select( $conn, $id );
-// var_dump($result);
-auto_update_finished($conn);
+var_dump($result);
+$item = $result[0][0];
+var_dump($item);
 
 ?>
 
@@ -46,7 +47,7 @@ auto_update_finished($conn);
 					제목명
 				</div>
 				<div class="div_wt">
-					<span class="test">치킨묵자<?php //echo $item["item_name"];?></span>
+					<span class="test"><?php echo $item["item_name"];?></span>
 				</div>
 			</div>
 			<div class="div_memo">
@@ -64,8 +65,8 @@ auto_update_finished($conn);
 				<div class="div_ylw">
 					태그
 				</div>
-				<div class="div_wt">반려동물/취미
-					<?php //echo $item["tag_name"];?>
+				<div class="div_wt">
+					<?php echo $item["tag_name"];?>
 				</div>
 			</div>
 			<div>
