@@ -80,12 +80,12 @@ if($http_method === "POST") {
 				<div class="insert_div">
 					<div class="insert_tit">태그</div>
 					<select class="insert_in2" name="tag_id" id="tag">
-						<option value="" selected disabled hidden>선택해주세요</option>
-						<option value="clothes">패션/뷰티</option>
-						<option value="food">식품/생활</option>
-						<option value="closet">가구/홈/데코</option>
-						<option value="degital">가전/디지털</option>
-						<option value="pet">반려동물/취미</option>
+						<option value="0" selected disabled hidden>선택해주세요</option>
+						<option value="1">패션/뷰티</option>
+						<option value="2">식품/생활</option>
+						<option value="3">가구/홈/데코</option>
+						<option value="4">가전/디지털</option>
+						<option value="5">반려동물/취미</option>
 					</select>
 					<div class="insert_te"></div>
 				</div>
