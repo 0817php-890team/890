@@ -6,34 +6,52 @@ require_once( ROOT ."/lib_db.php" );
 
 $http_method = $_SERVER["REQUEST_METHOD"];
 $conn=null;
+$id="";
 $nowTime = new DateTime(date("Y-m-d"));
 $boo_tran=false;
 PDO_set($conn);
+
 try {
     $boo_tran = $conn->beginTransaction();
 
     if($http_method === "POST") {
-        // var_dump($_POST);
+        var_dump($_POST);
         $id = $_POST["check"];
 
-        if(update_finished($conn, $id);
+        if(update_finished($conn, $id) === false){
+            throw new Exception("Check error");
+        }
+    }
+
+    if(list_select($conn) === false){
+        throw new Exception("List error");
     }
     $result = list_select($conn);
+    foreach ($result as $key => $value) {
+        if($value["d_day"] <= date("Y-m-d")){
+            if(auto_update_finished($conn) === false){
+                throw new Exception("Auto check error");
+            }
+        }
+    }
 
-    if(auto_update_finished($conn);
+    // var_dump($result);
+    // $auto = auto_update_finished($conn);
+    // var_dump($auto);
+    
     $conn->commit();
+    
 
 } catch (Exception $e) {
-    if($boo_tran){
+    if($boo_tran === true){
         $conn->rollBack();
     }
     echo $e->getMessage();
     exit;
+} finally {
+    PDO_del($conn);
 }
 
-
-PDO_del($conn);
-// var_dump($result);
 ?>
 
 <!DOCTYPE html>

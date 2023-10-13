@@ -98,7 +98,7 @@ function list_select(&$conn){
 		." where "
 		."     j.finished = 0 "
 		." order by "
-		."     j.d_day desc "
+		."     j.d_day "
 		."     ,j.id desc "
 		;
 		$arr_ps=[
@@ -170,7 +170,8 @@ function auto_update_finished(&$conn){
 		];
 
 		$stmt=$conn->prepare($sql);
-		$result=$stmt->execute();
+		$stmt->execute();
+		$result=$stmt->fetchAll();
 
 		return $result;
 
