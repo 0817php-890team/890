@@ -12,7 +12,7 @@ html {
 	height: 900px;
 }
 
-header >.container {
+header >.container { 
 	width: 500px;
 	height: 138px;
 	background-color:rgba(255, 207, 2, 1);
@@ -141,8 +141,8 @@ main>div>div{
 
 .div_wt{
 	background-color: #ffffff;
-	width: 320px;
-	min-height: 47px;
+	width: 300px;
+	
 	padding: 6px 10px 10px 120px;
 	border-radius: 10px;
 	text-align: center;
@@ -163,7 +163,7 @@ main>div>div{
 }
 
 .div_memo{
-	width: 320px;
+	width: 300px;
 	height: auto;
 	background-color: #ffffff;
 	word-break:break-all;
@@ -219,12 +219,8 @@ main * {
     src: local('Yeongdeok Haeparang.otf'),
 }
 
-.list_m {
-	padding: 0px 43px;
-}
-
 #container {
-    /* width: 500px; */
+    width: 500px;
     height: 675px;
     overflow: auto;
 }
@@ -269,7 +265,7 @@ td {
 .item_name {
     display: block;
     text-align: left;
-    width: 167px;
+    width: 153px;
     line-height: 70px;
     /* height: 33px; */
     font-size: 22px;
@@ -302,12 +298,22 @@ td>div, button.R {
 }
 
 .L {
-    border-radius: 20% 0 0 20%;
+    border-radius: 10px 0 0 10px;
     /* width: ; */
+	position: relative;
+	height: 70px;
+}
+
+.tag_img {
+	width: 39px;
+	height: 39px;
+	position: absolute;
+	top: 15px;
+	left: 15px;
 }
 
 .R {
-    border-radius: 0 20% 20% 0;
+    border-radius: 0 10px 10px 0;
     height: 70px;
     /* width: 100%; */
     border: 0px solid black;
@@ -334,14 +340,15 @@ td>div, button.R {
 
 body {
 	width: 500px;
-	height: 900px;
+	/* height: 900px; */
 }
 
-main {
-	padding: 38px 42px;
+.insert_main {
+	/* padding: 38px 42px; */
 	color: white;
 	font-size: 22px;
 	font-weight: bold;
+	box-sizing: border-box;
 }
 
 .insert_ma {
@@ -355,6 +362,7 @@ main {
 }
 
 .insert_te {
+	margin: 0px;
 	width: 320px;
 	height: 47px;
 	background-color: white;
@@ -390,7 +398,16 @@ main {
 	line-height: 47px;
 }
 
-#file {
+/* #file {
+	color: #000;
+	line-height: 47px;
+	margin-left: 10%;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+
+.input_f {
 	color: #000;
 	line-height: 47px;
 	margin-left: 13%;
@@ -398,7 +415,6 @@ main {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 
 .insert_in2 {
 	position: absolute;
@@ -413,12 +429,21 @@ main {
 	border-radius: 0 10px 10px 0;
 }
 
-
+/* .form_a {
+	width: 115px;
+	height: 47px;
+	background-color:rgba(255, 207, 2, 1) ;
+	position: absolute;
+	text-align: center;
+	line-height: 47px;
+	border-radius: 10px 0px 0px 10px;
+	color: white;
+	text-decoration: none;
+} */
 
 textarea {
 	margin: 0;
-	width: 320px;
-	height: 100px;
+	width: 322px;
 	resize: none;
 	padding: 21px 24px;
 	box-sizing: border-box;
@@ -451,3 +476,26 @@ textarea {
 	border-radius: 10px;
 }
 
+.insert_uploadOk {
+	font-size: 15px;
+}
+
+.img_add{
+	width: 64px;
+	height: 64px;
+	margin-top: 10px;
+}
+.img_plus{
+	width: 67px;
+	height: 67px;
+	margin-top: 10px;
+}
+
+
+
+
+/* list 추가 css */
+.list_m {
+	padding: 41px 42px;
+	margin: 0px auto 30px;
+}
