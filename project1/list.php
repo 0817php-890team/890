@@ -70,7 +70,7 @@ try {
     <link rel="stylesheet" href="/project1/project_890.css">
     <title>리스트 페이지</title>
 </head>
-<body>
+<body class="list_body">
     <?php
         require_once(FILE_HEADER);
     ?>

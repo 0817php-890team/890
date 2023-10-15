@@ -496,6 +496,9 @@ textarea {
 
 /* list 추가 css */
 .list_m {
-	padding: 41px 42px;
-	margin: 0px auto 30px;
+	padding: 0px 42px;
+	margin: 0px auto 13px;
+}
+.list_m#container {
+	height: 650px;
 }
