@@ -2,7 +2,7 @@
 define( "ROOT", $_SERVER["DOCUMENT_ROOT"]."/project1");
 define( "FILE_HEADER", ROOT ."/header.php" );
 define( "FILE_FOOTER", ROOT ."/footer.php" );
-define( "ERROR_MSG_PARAM", "오류입니다~" );
+// define( "ERROR_MSG_PARAM", "오류입니다~" );
 require_once( ROOT ."/lib_db.php" );
 
 
@@ -75,7 +75,7 @@ if($http_method === "POST") {
 						// exit;
 					}
 					$conn->commit();
-					// header("Location: list.php");
+					header("Location: list.php");
 					// exit;
 				}
 		}
@@ -111,7 +111,7 @@ if($http_method === "POST") {
 				<div class="insert_div">
 					<div class="insert_tit">태그</div>
 					<select class="insert_in2" name="tag_id" id="tag">
-						<option value="0" selected hidden>미선택</option>
+						<option value="0" selected>미선택</option>
 						<option value="1">패션/뷰티</option>
 						<option value="2">식품/생활</option>
 						<option value="3">가구/홈/데코</option>
