@@ -6,10 +6,14 @@
 	/* font-weight: 700; */
 }
 
+html, body {
+    width: 500px;
+    height: 900px;
+    margin: auto;
+}
 
-
-html {
-	height: 900px;
+body {
+    height: 763px;
 }
 
 header >.container { 
@@ -131,7 +135,7 @@ main>div{
 
 main>div>div{
 	margin: 7px;
-	font-size: 22px;
+	font-size: 14px;
 	
 	border-radius: 10px;
 	
@@ -141,11 +145,13 @@ main>div>div{
 
 .div_wt{
 	background-color: #ffffff;
-	width: 300px;
-	
+	width: 320px;
+	min-height: 47px;
 	padding: 6px 10px 10px 120px;
 	border-radius: 10px;
 	text-align: center;
+	padding-top: 15px;
+	/* line-height: 47px; */
 }
 
 
@@ -157,22 +163,24 @@ main>div>div{
 	width: 115px;
 	height: 47px;
 	
-	border-radius: 10px;
+	border-radius: 10px 0 0 10px;
 	text-align: center;
 	line-height: 47px;
+	font-size: 22px;
 }
 
 .div_memo{
-	width: 300px;
+	width: 320px;
 	height: auto;
 	background-color: #ffffff;
 	word-break:break-all;
 	border-radius: 10px;
+	min-height: 47px;
+	padding:21px 24px;
 	
 
 }
 section{
-	width: 417px;	
 	height: 85px;
 	line-height: 47px;
 	
@@ -193,35 +201,23 @@ section{
 }
 
 
-/* ---------------------------------------------- */
+/* ---------------리스트 페이지------------------------------- */
 * {
     box-sizing: border-box;
 }
 .리스트앞부분참고 {
 	list-style-image: url(../../html/img/busymz3.png);
 }
-html, body {
-    width: 500px;
-    height: 900px;
-    margin: auto;
-}
-
-body {
-    height: 763px;
-}
-
-
-
 
 main * {
     font-family: 'Yeongdeok Haeparang';
     /* font-weight: 700; */
-    src: local('Yeongdeok Haeparang.otf'),
+    
 }
 
 #container {
     width: 500px;
-    height: 675px;
+    height: 663px;
     overflow: auto;
 }
 #container::-webkit-scrollbar {
@@ -248,11 +244,11 @@ tr {
 }
 
 .finished .item_name {
-    width: 217px;
+    width: 176px;
 }
 
 .finished td>div, .finished button.R{
-    width: 67px;
+    width: 70px;
 }
 
 td {
@@ -323,7 +319,7 @@ td>div, button.R {
 
 #finished_day {
 	font-size: 16px;
-	width: 80px;
+	width: 101px;
 }
 
 .arrow{
@@ -336,19 +332,19 @@ td>div, button.R {
     cursor: pointer;
 }
 
-/* ---------------------------------------- */
+/* --------------작성페이지-------------------------- */
 
-body {
-	width: 500px;
-	/* height: 900px; */
-}
 
 .insert_main {
 	/* padding: 38px 42px; */
 	color: white;
 	font-size: 22px;
-	font-weight: bold;
+	/* font-weight: bold; */
 	box-sizing: border-box;
+}
+
+.insert_main, .detail_main {
+	padding-top: 15px;
 }
 
 .insert_ma {
@@ -380,7 +376,7 @@ body {
 	text-align: center;
 	line-height: 47px;
 	border-radius: 10px 0px 0px 10px;
-	font-weight: bold;
+	/* font-weight: bold; */
 
 }
 
@@ -474,6 +470,11 @@ textarea {
 	box-sizing: border-box;
 	font-size: 22px;
 	border-radius: 10px;
+}
+
+#insert_se {
+	height: 49px;
+	/* margin-top: 5px; */
 }
 
 .insert_uploadOk {

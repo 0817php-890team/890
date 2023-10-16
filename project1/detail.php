@@ -33,7 +33,7 @@ $item = $result[0][0];
 	?>
 		
 	
-	<main id="container">
+	<main class= "detail_main" id="container">
 	
 		<div class="insert_ma">
 		<?php

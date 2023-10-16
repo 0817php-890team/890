@@ -80,7 +80,6 @@ if($http_method === "POST") {
 				}
 		}
 
-var_dump($arr_param);
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +94,7 @@ var_dump($arr_param);
 	<?php
 		require_once(FILE_HEADER);
 	?>
-	<main class="insert_main">
+	<main class="insert_main" id="container">
 		<form action="/project1/insert.php" method="post" enctype="multipart/form-data">
 			<div class="insert_ma">
 					<div class="insert_div">
@@ -141,7 +140,7 @@ var_dump($arr_param);
 				?>
 			</div>
 			<section class="insert_set">
-				<button class="insert_se" type="submit">작성</button>
+				<button class="insert_se" id="insert_se" type="submit">작성</button>
 				<a class="insert_se" href="/project1/list.php">취소</a>
 			</section>
 		</form>

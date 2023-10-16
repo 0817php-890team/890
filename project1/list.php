@@ -79,12 +79,12 @@ try {
         <form action="/project1/list.php" method="post">
             <table>
             <?php if($page == 1){ ?>
-                <colgroup>
+                <!-- <colgroup>
                     <col width=16%>
                     <col width=48%>
                     <col width=16%>
                     <col width=20%>
-                </colgroup>
+                </colgroup> -->
                 <?php foreach($result as $item) { ?>
                 <tr class="finished">
                     <td><div class="L"><img class="tag_img" src="/project1/img/<?php echo $item["tag_img"]; ?>" alt=""></div></td>
