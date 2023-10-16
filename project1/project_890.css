@@ -154,6 +154,39 @@ main>div>div{
 	/* line-height: 47px; */
 }
 
+.div_to {
+	/* height: 47px; */
+	display: flex;
+}
+
+.div_to>.div_wt, .div_to>.div_ylw{
+	/* height: 100%; */
+	position: static;
+}
+
+.div_to>.div_wt{
+	padding: 0;
+	width: 205px;
+	height: 100%;
+	padding: 10px 15px;
+	border-radius: 0 10px 10px 0;
+	display: flex;
+	flex-flow: wrap row;
+	align-items: center;
+	justify-content: center;
+}
+
+.div_wt>span{
+	text-align: left;
+}
+
+.div_to>.div_ylw{
+	width: 115px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
 .div_ylw{
 	background-color: #ffcf02;

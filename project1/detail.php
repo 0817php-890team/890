@@ -42,12 +42,12 @@ $item = $result[0][0];
 
 			?>
 			<img class=img_dt src="/project1/img/<?php echo $item["img"];?>" alt=""><?php };?>
-			<div >
+			<div class="div_to">
 				<div class="div_ylw">
 					제목명
 				</div>
 				<div class="div_wt">
-					<?php echo $item["item_name"];?>
+					<span><?php echo $item["item_name"];?></span>
 				</div>
 			</div>
 			<div class="div_memo">
