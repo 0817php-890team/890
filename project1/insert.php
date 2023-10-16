@@ -75,12 +75,12 @@ if($http_method === "POST") {
 						// exit;
 					}
 					$conn->commit();
-					header("Location: list.php");
+					// header("Location: list.php");
 					// exit;
 				}
 		}
 
-
+var_dump($arr_param);
 ?>
 
 <!DOCTYPE html>
@@ -112,7 +112,7 @@ if($http_method === "POST") {
 				<div class="insert_div">
 					<div class="insert_tit">태그</div>
 					<select class="insert_in2" name="tag_id" id="tag">
-						<option value="0" selected disabled hidden>선택해주세요</option>
+						<option value="0" selected hidden>미선택</option>
 						<option value="1">패션/뷰티</option>
 						<option value="2">식품/생활</option>
 						<option value="3">가구/홈/데코</option>
