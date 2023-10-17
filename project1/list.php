@@ -8,19 +8,17 @@ $http_method = $_SERVER["REQUEST_METHOD"];
 $conn=null;
 $id="";
 $nowTime = new DateTime(date("Y-m-d"));
-isset($_GET["page"]) && $_GET["page"] == 1 ? $page = 1 : $page = 0;
+$page = isset($_GET["page"]) && $_GET["page"] == 1 ? 1 : 0;
 
 $boo_tran=false;
 PDO_set($conn);
 
 try {
-    
-
     if($page == 1){
         $result = finished_list_select($conn);        
     } else {
         $boo_tran = $conn->beginTransaction();
-        
+
         if($http_method === "POST") {
             // var_dump($_POST);
             $id = $_POST["check"];
@@ -37,19 +35,17 @@ try {
         $result = list_select($conn);
         foreach ($result as $value) {
             if($value["d_day"] < date("Y-m-d")){
-                if(auto_update_finished($conn) === false){
+                if(auto_update_finished($conn) === false){ // 파라미터를 넣을 수도?
                     throw new Exception("Auto check error");
                 }
             }
         }
+        // if(list_select($conn) === false){
+        //     throw new Exception("List error");
+        // } 오토 업뎃 갱신용
             
         $conn->commit();
-        // var_dump($result);
-        // $auto = auto_update_finished($conn);
-        // var_dump($auto);
     }
-
-    
 
 } catch (Exception $e) {
     if($boo_tran === true){
@@ -58,10 +54,9 @@ try {
     echo $e->getMessage();
     exit;
 } finally {
-    // var_dump(basename($_SERVER['PHP_SELF']));
     PDO_del($conn);
 }
-
+// var_dump(date('t',time()-2592000));
 ?>
 
 <!DOCTYPE html>
@@ -81,12 +76,6 @@ try {
         <form action="/project1/list.php" method="post">
             <table>
             <?php if($page == 1){ ?>
-                <!-- <colgroup>
-                    <col width=16%>
-                    <col width=48%>
-                    <col width=16%>
-                    <col width=20%>
-                </colgroup> -->
                 <?php foreach($result as $item) { ?>
                 <tr class="finished">
                     <td><div class="L"><img class="tag_img" src="/project1/img/<?php echo $item["tag_img"]; ?>" alt=""></div></td>
@@ -94,7 +83,7 @@ try {
                         <?php echo $item["item_name"]; ?></a>
                     </td>
                     <td><div><?php echo $item["amount"] ." 개"; ?></div></td>
-                    <td><div class="R" id="finished_day"><?php echo  substr(str_replace("-", "", $item["d_day"]),2,6); ?></div></td>
+                    <td><div class="R" id="finished_day"><?php echo substr(str_replace("-", "", $item["d_day"]),2,6); ?></div></td>
                 </tr>
             <?php } ?>
             <?php } else { ?>
@@ -103,6 +92,7 @@ try {
                         $diffTime = new DateTime($item["d_day"]);
                         $interval = $nowTime->diff($diffTime);
                         $inter_day = $interval->days;
+                        // var_dump($interval);
                         if($inter_day === 0){ $inter_day = "day"; }
                     ?>
                     <tr>

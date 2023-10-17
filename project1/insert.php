@@ -76,7 +76,7 @@ if($http_method === "POST") {
 					}
 					$conn->commit();
 					header("Location: list.php");
-					// exit;
+					exit;
 				}
 		}
 
