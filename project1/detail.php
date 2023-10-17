@@ -39,9 +39,11 @@ $item = $result[0];
 		<?php
 			if( $item["img"] == "" || $item["img"] === null){
 			}else{
-
-			?>
-			<img class=img_dt src="/project1/img/<?php echo $item["img"];?>" alt=""><?php };?>
+		?>
+			<img class=img_dt src="/project1/img/<?php echo $item["img"];?>" alt="">
+		<?php 
+			};
+		?>
 			<div class="div_to">
 				<div class="div_ylw">
 					제목명
@@ -59,7 +61,7 @@ $item = $result[0];
 				</div>
 				<div class="div_wt">
 					<?php echo $item["amount"];?>
-			</div>
+				</div>
 			</div>
 			<div>
 				<div class="div_ylw">
@@ -74,14 +76,10 @@ $item = $result[0];
 					기한
 				</div>
 				<div class="div_wt">
-				<?php echo $item["d_day"];?>
+					<?php echo $item["d_day"];?>
 				</div>
 			</div>
-		</div>
-		
-	
-	
-		
+		</div>		
 		<section class="insert_set">
 			<a class="insert_se" href="">삭제</a>
 			<a class="insert_se" href="/project1/list.php/?page=<?php echo $page;?>">취소</a>
