@@ -66,19 +66,15 @@ header >.container {
 
 
 main::-webkit-scrollbar{
-	
-		width: 13px;
+	width: 13px;
 	}
-	main::-webkit-scrollbar-thumb {
-		background-color: #FFCF02;
-		border-radius: 13px;
-	
-	
-	
+main::-webkit-scrollbar-thumb {
+	background-color: #FFCF02;
+	border-radius: 13px;
 }
 
 #container {
-   
+    width: 500px;
     height: 675px;
     overflow: auto;
 }
@@ -136,11 +132,7 @@ main>div{
 main>div>div{
 	margin: 7px;
 	font-size: 14px;
-	
 	border-radius: 10px;
-	
-	
-	
 }
 
 .div_wt{
@@ -208,16 +200,15 @@ main>div>div{
 	background-color: #ffffff;
 	word-break:break-all;
 	border-radius: 10px;
-	min-height: 47px;
+	min-height: 100px;
 	padding:21px 24px;
-	
-
 }
+
 section{
 	height: 85px;
 	line-height: 47px;
-	
 }
+
 .detail {
 	text-decoration: none;
 	background-color: #ffcf02;
@@ -229,8 +220,6 @@ section{
 	font-size: 22px;
 	float: right;
 	border-radius: 10px;
-	
-	
 }
 
 
@@ -242,24 +231,6 @@ section{
 	list-style-image: url(../../html/img/busymz3.png);
 }
 
-main * {
-    font-family: 'Yeongdeok Haeparang';
-    /* font-weight: 700; */
-    
-}
-
-#container {
-    width: 500px;
-    height: 663px;
-    overflow: auto;
-}
-#container::-webkit-scrollbar {
-    width: 13px;
-}
-#container::-webkit-scrollbar-thumb {
-    background-color: #FFCF02;
-    border-radius: 13px;
-}
 
 table {
     width: 417px;
@@ -410,7 +381,6 @@ td>div, button.R {
 	line-height: 47px;
 	border-radius: 10px 0px 0px 10px;
 	/* font-weight: bold; */
-
 }
 
 .insert_in {

@@ -11,8 +11,8 @@ $conn = null;
 
 
 PDO_set($conn);
-$result[0] = detail_select( $conn, $id );
-$item = $result[0][0];
+$result = detail_select( $conn, $id );
+$item = $result[0];
 
 // var_dump($item["img"]);
 
