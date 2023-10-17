@@ -14,11 +14,13 @@ $boo_tran=false;
 PDO_set($conn);
 
 try {
-    $boo_tran = $conn->beginTransaction();
+    
 
     if($page == 1){
         $result = finished_list_select($conn);        
     } else {
+        $boo_tran = $conn->beginTransaction();
+        
         if($http_method === "POST") {
             // var_dump($_POST);
             $id = $_POST["check"];
@@ -40,13 +42,13 @@ try {
                 }
             }
         }
-    
+            
+        $conn->commit();
         // var_dump($result);
         // $auto = auto_update_finished($conn);
         // var_dump($auto);
     }
-    
-    $conn->commit();
+
     
 
 } catch (Exception $e) {

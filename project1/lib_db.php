@@ -57,7 +57,6 @@ function finished_list_select(&$conn){
 		."     j.finished = 1 "
 		." order by "
 		."     j.finished_at desc "
-		."     ,j.d_day desc "
 		;
 		$arr_ps=[
 		];
@@ -164,6 +163,8 @@ function auto_update_finished(&$conn){
 		."  	finished = '1' "
 		."  	,finished_at = date(now()) "
 		." where "
+		." 		finished = '0' "
+		." 	 and "
 		."  	date(now()) > d_day "
 		;
 		$arr_ps=[
