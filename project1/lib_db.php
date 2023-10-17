@@ -181,7 +181,7 @@ function auto_update_finished(&$conn){
 	}
 }
 
-function detail_select(&$conn,&$arr_param){
+function detail_select(&$conn,&$id){
 	try{
 		$sql= " SELECT "
 		  ." id "
@@ -206,7 +206,7 @@ function detail_select(&$conn,&$arr_param){
 
 
 	 $arr_ps =[
-				":id"=>$arr_param
+				":id"=>$id
 			  ];
 	
 		$stmt=$conn->prepare($sql);
