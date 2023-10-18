@@ -209,6 +209,12 @@ section{
 	line-height: 47px;
 }
 
+.detail_set {
+	margin-top: 19px;
+	margin-left: 68%;
+	margin-bottom: 19px;
+}
+
 .detail {
 	text-decoration: none;
 	background-color: #ffcf02;
