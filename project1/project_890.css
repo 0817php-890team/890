@@ -73,9 +73,9 @@ main::-webkit-scrollbar-thumb {
 	border-radius: 13px;
 }
 
-#container {
+.insert_main#container, .detail_main#container {
     width: 500px;
-    height: 675px;
+    height: 663px;
     overflow: auto;
 }
 #container::-webkit-scrollbar {
@@ -506,4 +506,6 @@ textarea {
 }
 .list_m#container {
 	height: 650px;
+	width: 500px;
+    overflow: auto;
 }
