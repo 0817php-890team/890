@@ -73,9 +73,9 @@ main::-webkit-scrollbar-thumb {
 	border-radius: 13px;
 }
 
-.insert_main#container, .detail_main#container {
+#container {
     width: 500px;
-    height: 663px;
+    height: 675px;
     overflow: auto;
 }
 #container::-webkit-scrollbar {
@@ -207,6 +207,13 @@ main>div>div{
 section{
 	height: 85px;
 	line-height: 47px;
+}
+
+
+.detail_set {
+	margin-top: 19px;
+	margin-left: 68%;
+	margin-bottom: 19px;
 }
 
 .detail {
@@ -506,6 +513,4 @@ textarea {
 }
 .list_m#container {
 	height: 650px;
-	width: 500px;
-    overflow: auto;
 }
