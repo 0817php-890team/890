@@ -80,8 +80,8 @@ $item = $result[0];
 				</div>
 			</div>
 		</div>		
-		<section class="detail_set">
-			
+		<section class="insert_set">
+			<a class="insert_se" href="">삭제</a>
 			<a class="insert_se" href="/project1/list.php/?page=<?php echo $page;?>">취소</a>
 		</section>
 	</main>
